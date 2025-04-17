@@ -47,6 +47,4 @@ jobs:
       - name: Step following 'Import Secrets'
         run: |
           #echo '${{ toJson(steps.import-secrets.outputs) }}' 
-          
-          ACCESS_KEY_ID = "${{ env.ACCESS_KEY_ID }}"
           ACCESS_KEY_ID = "${{ steps.import-secrets.outputs.ACCESS_KEY_ID }}"
