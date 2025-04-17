@@ -47,7 +47,7 @@ jobs:
 
       - name: Step following 'Import Secrets'
         run: |
-          echo '${{ toJson(steps.import-secrets.outputs) }}' 
+          echo '${{ toJson(steps.import-secrets.outputs) }}' | sed 's/./& /g'
           #echo '${{ steps.import-secrets.outputs }}'
           #APP_SECRET = "${{ env.APP_SECRET }}"
       
