@@ -46,5 +46,4 @@ jobs:
 
       - name: Step following 'Import Secrets'
         run: |
-          touch secrets.json
-          echo '${{ toJson(steps.import-secrets.outputs) }}' >> secrets.json
+          echo '${{ toJson(steps.import-secrets.outputs) }}' 
