@@ -40,12 +40,13 @@ jobs:
         with:
           url: https://127.0.0.1:8200
           tlsSkipVerify: true
-          token: ${{ secrets.VAULT_TOKEN }}
+          token: ${{ secrets.VAULT_TOKEN }} | APP_SECRET
           secrets: |
             secret/data/ci app_secret
 
       - name: Step following 'Import Secrets'
         run: |
           #echo '${{ toJson(steps.import-secrets.outputs) }}' 
-          echo '${{ steps.import-secrets.outputs }}'
+          #echo '${{ steps.import-secrets.outputs }}'
+          APP_SECRET = "${{ env.APP_SECRET }}"
           #ACCESS_KEY_ID = "${{ steps.import-secrets.outputs.ACCESS_KEY_ID }}"
