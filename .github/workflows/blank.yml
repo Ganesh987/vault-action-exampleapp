@@ -18,7 +18,7 @@ jobs:
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -35,13 +35,11 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
 
-      - uses: actions/checkout@v3
       - name: Import Secrets
         uses: hashicorp/vault-action@v2
         with:
           url: http://127.0.0.1:8200
           tlsSkipVerify: true
-          token: ${{ secrets.VAULT_TOKEN }} | AWS_ACCESS_KEY_ID ;
-          run: echo AWS_ACCESS_KEY_ID
+          token: ${{ secrets.VAULT_TOKEN }}
           secrets: |
             secret/data/ci app_secret
