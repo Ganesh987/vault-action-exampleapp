@@ -40,7 +40,7 @@ jobs:
         with:
           url: https://127.0.0.1:8200
           tlsSkipVerify: true
-          token: ${{ secrets.VAULT_TOKEN }} | APP_SECRET
+          token: ${{ secrets.VAULT_TOKEN }} | APP_SECRET;
           secrets: |
             secret/data/ci app_secret
 
