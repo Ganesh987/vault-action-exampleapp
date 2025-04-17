@@ -47,7 +47,8 @@ jobs:
 
       - name: Step following 'Import Secrets'
         run: |
-          #echo '${{ toJson(steps.import-secrets.outputs) }}' 
-          echo '${{ steps.import-secrets.outputs }}'
+          echo '${{ toJson(steps.import-secrets.outputs) }}' 
+          #echo '${{ steps.import-secrets.outputs }}'
           #APP_SECRET = "${{ env.APP_SECRET }}"
-          #ACCESS_KEY_ID = "${{ steps.import-secrets.outputs.ACCESS_KEY_ID }}"
+      
+          #SECRET_ACCESS_KEY = "${{ steps.import-secrets.outputs.AWS_SECRET_ACCESS_KEY }}"
