@@ -42,11 +42,11 @@ jobs:
           tlsSkipVerify: true
           token: ${{ secrets.VAULT_TOKEN }}
           secrets: |
-            secret/data/ci app_secret | ACCESS_KEY_ID
+            secret/data/ci app_secret | ACCESS_KEY_ID;
 
       - name: Step following 'Import Secrets'
         run: |
           #echo '${{ toJson(steps.import-secrets.outputs) }}' 
-
+          
           ACCESS_KEY_ID = "${{ env.AWS_ACCESS_KEY_ID }}"
           ACCESS_KEY_ID = "${{ steps.import-secrets.outputs.ACCESS_KEY_ID }}"
