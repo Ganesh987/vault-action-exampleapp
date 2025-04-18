@@ -43,13 +43,13 @@ jobs:
           tlsSkipVerify: true
           token: ${{ secrets.VAULT_TOKEN }} 
           secrets: |
-            secret/data/ci#app_secret
+            secret/data/ci app_secret
 
       - name: Step following 'Import Secrets'
         run: |
           echo '${{ toJson(steps.import-secrets.outputs) }}'
           #TESTS = '${{ toJson(steps.import-secrets.outputs) }}'
-          TESTSR="${{ toJson(steps.import-secrets.outputs) }}"
+          TESTS = "${{ toJson(steps.import-secrets.outputs) }}"
     
           #echo '${{ steps.import-secrets.outputs }}'
           #APP_SECRET = "${{ env.APP_SECRET }}"
