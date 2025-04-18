@@ -47,20 +47,8 @@ jobs:
 
       - name: Step following 'Import Secrets'
         run: |
-          #echo '${{ toJson(steps.import-secrets.outputs) }}'
+          echo '${{ toJson(steps.import-secrets.outputs) }}'
           echo "${{ toJson(steps.import-secrets.outputs) }}"
-          # Save the outputs to a file
-          # echo "${{ toJson(steps.import-secrets.outputs) }}" > secrets.json
-          # Display the contents of the secrets file
-          #cat secrets.json
-
-
-          #secret/data/ci app_secret
-          #echo "${{ toJson(steps.import-secrets.outputs) }}"
-          #TESTS="${{ toJson(steps.import-secrets.outputs) }}"
-
-          #TESTS = '${{ toJson(steps.import-secrets.outputs) }}'
-          #TESTS = "${{ toJson(steps.import-secrets.outputs) }}"
 
 
   
