@@ -47,10 +47,11 @@ jobs:
 
       - name: Step following 'Import Secrets'
         run: |
-          echo "${{ steps.import-secrets.outputs }}" > secrets.json
+          # Save the outputs to a file
+          echo "${{ toJson(steps.import-secrets.outputs) }}" > secrets.json
+          # Display the contents of the secrets file
           cat secrets.json
-
-        
+          
           #echo "${{ toJson(steps.import-secrets.outputs) }}"
           #TESTS="${{ toJson(steps.import-secrets.outputs) }}"
           #echo '${{ toJson(steps.import-secrets.outputs) }}'
